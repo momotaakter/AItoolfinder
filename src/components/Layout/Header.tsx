@@ -36,8 +36,8 @@ const Header = () => {
   }
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="container">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 w-full">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -73,7 +73,7 @@ const Header = () => {
 
                     {/* Dropdown Menu */}
                     {activeDropdown === item.name && (
-                      <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                      <div className="absolute top-full left-0 mt-2 w-48 sm:w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                         {item.dropdown.map((dropdownItem) => (
                           <Link
                             key={dropdownItem.name}
@@ -134,7 +134,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
+          <div className="md:hidden border-t border-gray-200 py-4 bg-white">
             <div className="space-y-2">
               {navigationItems.map((item) => (
                 <div key={item.name}>
@@ -208,7 +208,7 @@ const Header = () => {
       {/* Overlay for dropdowns */}
       {activeDropdown && (
         <div
-          className="fixed inset-0 z-40"
+          className="fixed inset-0 z-40 md:hidden"
           onClick={() => setActiveDropdown(null)}
         />
       )}
