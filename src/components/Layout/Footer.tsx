@@ -151,7 +151,7 @@ export default function Footer() {
       */}
 
     
- <div className="bg-[#0DB17B] text-white py-5">
+ <div className="bg-[#009966] text-white py-5">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center md:items-start justify-between">
         {/* Left side text */}
         <div className="text-center md:text-left mb-6 md:mb-0">

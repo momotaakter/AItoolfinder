@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import Thredetxt from './../ui/Thredetxt';
 
 
 const icons = [
@@ -14,7 +14,7 @@ const icons = [
   { src: "/icons/notion.png", top: "80%", right: "25%" },
 ];
 
-export default function HeroSection() {
+export default function HeroSection2() {
   return (
     <section className="relative flex flex-col items-center justify-center min-h-[80vh] sm:min-h-[85vh] lg:min-h-[90vh] overflow-hidden bg-gradient-to-r from-[#f8fafc] to-[#f0f7ff] text-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       
@@ -52,6 +52,8 @@ export default function HeroSection() {
 
       {/* Main Text */}
       <div className="flex flex-col items-center gap-4">
+           
+
 
 
         <div className="text-2xl sm:text-3xl font-medium text-gray-800">
@@ -99,7 +101,6 @@ export default function HeroSection() {
 
 
 
-    
     </section>
   );
 }
