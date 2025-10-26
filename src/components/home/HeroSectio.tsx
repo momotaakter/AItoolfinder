@@ -28,7 +28,39 @@ export default function HeroSection() {
         <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-purple-400 rounded-full blur-3xl"></div>
       </motion.div>
 
-      {/* Floating Icons with Fixed Size and Smooth Vertical Animation */}
+{/* Floating Icons with Slide-Down + Faster Continuous Movement */}
+{icons.map((icon, i) => (
+  <motion.div
+    key={i}
+    className="absolute w-12 h-12 sm:w-14 sm:h-14 rounded-2xl shadow-xl bg-white/90 backdrop-blur-sm flex items-center justify-center border border-white/20 cursor-pointer"
+    style={{ top: icon.top, left: icon.left, right: icon.right }}
+    initial={{ opacity: 1, y: -30 }} // শুরুতে ওপর থেকে নিচে আসবে
+    animate={{
+      y: [0, -10, 0], // সবসময় হালকা করে নড়বে
+    }}
+    transition={{
+      delay: icon.delay,
+      duration: 2, // আগের থেকে দ্রুত
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  >
+    <Image
+      src={icon.src}
+      alt="icon"
+      width={32}
+      height={32}
+      className="rounded-lg"
+    />
+  </motion.div>
+))}
+
+
+
+
+
+
+      {/* Floating Icons with Fixed Size and Smooth Vertical Animation 
       {icons.map((icon, i) => (
         <motion.div
           key={i}
