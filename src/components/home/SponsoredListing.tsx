@@ -17,6 +17,8 @@ const listings = [
     likes: 216,
     color: "bg-[#F5F8FF]",
   },
+
+
   {
     name: "GitHub Copilot",
     rating: 3.5,
@@ -44,6 +46,18 @@ const listings = [
     likes: 242,
     color: "bg-white",
   },
+
+  {
+    name: "Rewind",
+    rating: 4.5,
+    description: "Save anything, including conversations and make them...",
+    tag: "AI for AI for Productivity",
+    views: 404,
+    likes: 242,
+    color: "bg-white",
+  },
+
+
 ];
 
 const fadeUp = {
@@ -53,17 +67,38 @@ const fadeUp = {
 
 const SponsoredListing: React.FC = () => {
   return (
-    <section className="w-full bg-white py-12 md:py-20">
+    <section className=" bg-white py-12 md:py-20 mx-4">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 mx-4">
           <div>
             <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">Sponsored Listings</h2>
-            <p className="text-gray-500 mt-1">Featured AI tools and services</p>
-          </div>
-          <span className="text-green-600 bg-green-100 px-3 py-1 rounded-full text-sm font-medium mt-3 md:mt-0">
+            <p className="text-gray-500 mt-1">Featured AI tools and services    <span className="text-green-600 bg-green-100 px-3 py-1 rounded-full text-sm font-medium mt-3 md:mt-0 ">
             Promoted
-          </span>
+          </span> </p>
+ 
+
+          </div>
+       
+
+
+ {/* Bottom Link */}
+        <div className="text-right mt-6">
+          <a
+            href="#"
+            className="text-green-600 hover:text-green-700 font-medium text-sm inline-flex items-center gap-1"
+          >
+            Advertise with us →
+          </a>
+        </div>
+      </div>
+
+
+
+
+
+
+
         </div>
 
         {/* Card Grid */}
@@ -116,18 +151,9 @@ const SponsoredListing: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom Link */}
-        <div className="text-right mt-6">
-          <a
-            href="#"
-            className="text-green-600 hover:text-green-700 font-medium text-sm inline-flex items-center gap-1"
-          >
-            Advertise with us →
-          </a>
-        </div>
-      </div>
-    </section>
+</section>
+       
+  
   );
 };
 
