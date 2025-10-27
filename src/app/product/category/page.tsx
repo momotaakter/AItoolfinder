@@ -1,25 +1,73 @@
-export default function ProductCategoryPage() {
+// components/BrowseCategories.tsx
+"use client";
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import TitleSection from "@/components/common/TitleSection";
+
+interface Category {
+  name: string;
+  count: number;
+}
+
+const categories: Category[] = [
+  { name: "content", count: 29 },
+  { name: "images", count: 22 },
+  { name: "personal assistant", count: 12 },
+  { name: "chatting", count: 12 },
+
+];
+
+const page: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">📂 Product Categories</h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Browse AI tools by category and find exactly what you need
-          </p>
-        </div>
-        
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-          <div className="text-center">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              AI Tool Categories Coming Soon
-            </h2>
-            <p className="text-gray-600">
-              We're organizing AI tools into helpful categories to make your search easier. Check back soon for categorized listings!
-            </p>
+    <div className="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-12">
+
+
+     
+
+   <TitleSection
+        title="🚀 Latest AI Tool Launches"
+        paragraph="Discover the most recent AI tools that have launched. Stay updated with the latest innovations in artificial intelligence."
+      ></TitleSection>
+
+
+
+
+
+      {/* Search Input */}
+      <div className="mb-6">
+        <input
+          type="text"
+          placeholder="Search categories..."
+          className="w-full sm:w-1/2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+
+      {/* Category Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {categories.map((cat, idx) => (
+          <div
+            key={idx}
+            className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition cursor-pointer flex flex-col justify-between"
+          >
+            {/* Text + Arrow in one line */}
+            <div className="flex justify-between items-center">
+              <h3 className="font-semibold text-lg">{cat.name}</h3>
+          
+    
+            </div>
+          <div className="flex justify-between">
+          <div> <span className="text-blue-500 text-sm mt-2">{cat.count} tools</span></div>
+
+           <div><p className="bg-[#009966] text-white p-1 text-[10px] rounded-[3px]">Explore  </p>  </div>
+
           </div>
-        </div>
+
+
+          </div>
+        ))}
       </div>
     </div>
   );
-}
+};
+
+export default page;

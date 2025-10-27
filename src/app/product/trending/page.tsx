@@ -1,25 +1,19 @@
-export default function TrendingProductPage() {
+
+import Toolcard from "./Toolcard";
+
+
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">📈 Trending Products</h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Discover the most popular and trending AI tools right now
-          </p>
-        </div>
-        
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-          <div className="text-center">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              Trending AI Tools Coming Soon
-            </h2>
-            <p className="text-gray-600">
-              We're tracking the most popular AI tools based on user engagement and trends. Check back soon for trending picks!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <main className=" bg-gray-50 flex items-center justify-center p-6">
+      <Toolcard
+        name="Basepilot"
+        initials="BA"
+        category="workflow automation"
+        isFree
+        rank={0}
+        description="Basepilot is an AI tool designed to automate work tasks, focusing primarily on repetitive, manual jobs."
+        votes={48}
+      />
+    </main>
   );
 }

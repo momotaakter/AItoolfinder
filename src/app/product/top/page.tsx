@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CircleArrowUp, ExternalLink, Star } from "lucide-react";
 import React, { useState } from "react";
+import TitleSection from "@/components/common/TitleSection";
 
 interface ButtonProps {
     label: string;
@@ -25,6 +26,23 @@ const page: React.FC = () => {
 
     return (
         <div className="p-4 sm:p-6 lg:p-10 max-w-7xl mx-auto">
+
+
+   <TitleSection
+        title="🚀 Latest AI Tool Launches"
+        paragraph="Discover the most recent AI tools that have launched. Stay updated with the latest innovations in artificial intelligence."
+      ></TitleSection>
+
+
+
+
+
+
+
+
+
+
+
             {/* Filter Buttons */}
             <div className="flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-4 mt-4">
                 {buttons.map((label) => (
