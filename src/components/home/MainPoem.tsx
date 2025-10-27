@@ -170,7 +170,7 @@ export default function MainPoem() {
   const visiblePoems = sortedPoems.slice(0, visibleCount);
 
   return (
-    <main className=" bg-slate-50 px-4 py-10 sm:px-6 lg:px-12 max-w-7xl mx-auto">
+    <main className="bg-slate-50 px-4 py-10 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full overflow-hidden">
 
 
 
@@ -289,7 +289,7 @@ export default function MainPoem() {
 
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 w-full">
           {visiblePoems.map((poem) => (
             <PoemCard key={poem.id} {...poem} />
           ))}

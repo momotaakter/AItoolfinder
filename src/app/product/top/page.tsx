@@ -25,7 +25,7 @@ const page: React.FC = () => {
     const buttons: string[] = ["All Time", "This Month", "This Week"];
 
     return (
-        <div className="p-4 sm:p-6 lg:p-10 max-w-7xl mx-auto">
+        <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full overflow-hidden">
 
 
    <TitleSection
@@ -59,7 +59,7 @@ const page: React.FC = () => {
             <ProductDescription />
 
             {/* Cards (Mock from API) */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-5 place-items-center">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
                 {Array.from({ length: 11 }).map((_, idx) => (
                     <motion.div
                         key={idx}
@@ -152,7 +152,7 @@ const ProductDescription: React.FC = () => {
 //  AI Tool Card Component
 const AIToolCard: React.FC = () => {
     return (
-        <div className="w-full max-w-[350px] border rounded-xl shadow-sm p-4 bg-white flex flex-col gap-3 hover:shadow-md transition">
+        <div className="w-full max-w-full border rounded-xl shadow-sm p-4 bg-white flex flex-col gap-3 hover:shadow-md transition">
             {/* Header Section */}
             <div className="flex items-start justify-between">
                 <div className="flex gap-3 w-full cursor-pointer">

@@ -14,7 +14,7 @@ const icons = [
 
 export default function HeroSection() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-[80vh] sm:min-h-[85vh] lg:min-h-[90vh] overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#f0f7ff] to-[#e6f3ff] text-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <section className="relative flex flex-col items-center justify-center min-h-[80vh] sm:min-h-[85vh] lg:min-h-[90vh] overflow-hidden bg-gradient-to-br from-[#f8fafc] via-[#f0f7ff] to-[#e6f3ff] text-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 max-w-full">
       
       {/* Animated Background Elements */}
       <motion.div
@@ -32,24 +32,30 @@ export default function HeroSection() {
 {icons.map((icon, i) => (
   <motion.div
     key={i}
-    className="absolute w-12 h-12 sm:w-14 sm:h-14 rounded-2xl shadow-xl bg-white/90 backdrop-blur-sm flex items-center justify-center border border-white/20 cursor-pointer"
-    style={{ top: icon.top, left: icon.left, right: icon.right }}
-    initial={{ opacity: 1, y: -30 }} // শুরুতে ওপর থেকে নিচে আসবে
+    className="absolute w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-2xl shadow-xl bg-white/90 backdrop-blur-sm flex items-center justify-center border border-white/20 cursor-pointer"
+    style={{
+      top: icon.top,
+      left: icon.left,
+      right: icon.right,
+      maxWidth: 'calc(100% - 2rem)',
+      maxHeight: 'calc(100% - 2rem)'
+    }}
+    initial={{ opacity: 1, y: -30 }}
     animate={{
-      y: [0, -10, 0], // সবসময় হালকা করে নড়বে
+      y: [0, -10, 0],
     }}
     transition={{
       delay: icon.delay,
-      duration: 2, // আগের থেকে দ্রুত
+      duration: 2,
       repeat: Infinity,
     }}
   >
     <Image
       src={icon.src}
       alt="icon"
-      width={32}
-      height={32}
-      className="rounded-lg"
+      width={24}
+      height={24}
+      className="rounded-lg w-6 h-6 sm:w-8 sm:h-8"
     />
   </motion.div>
 ))}

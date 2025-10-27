@@ -67,8 +67,8 @@ const fadeUp = {
 
 const SponsoredListing: React.FC = () => {
   return (
-    <section className=" bg-white py-12 md:py-20 px-4 sm:px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto px-4 ">
+    <section className="bg-white py-12 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 ">
           <div>
@@ -102,7 +102,7 @@ const SponsoredListing: React.FC = () => {
         </div>
 
         {/* Card Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
           {listings.map((item, index) => (
             <motion.div
               key={item.name}

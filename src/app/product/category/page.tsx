@@ -19,7 +19,7 @@ const categories: Category[] = [
 
 const page: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-12">
+    <div className="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8 w-full overflow-hidden">
 
 
      
@@ -43,7 +43,7 @@ const page: React.FC = () => {
       </div>
 
       {/* Category Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
         {categories.map((cat, idx) => (
           <div
             key={idx}

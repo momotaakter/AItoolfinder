@@ -375,8 +375,8 @@ export default function ToolsSection() {
   }, [searchQuery, selectedCategory, priceFilter, showTrending, showFeatured]);
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Section Header */}
         
 
@@ -431,7 +431,7 @@ export default function ToolsSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-full"
           >
             {displayedTools.map((tool, index) => (
               <motion.div
@@ -441,7 +441,7 @@ export default function ToolsSection() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.6, delay: index * 0.1, type: "spring", stiffness: 100 }}
                 whileHover={{ y: -8, scale: 1.03, boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.15)" }}
-                className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden group cursor-pointer relative"
+                className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden group cursor-pointer relative max-w-full"
               >
                 
                 {/* Tool Image */}
