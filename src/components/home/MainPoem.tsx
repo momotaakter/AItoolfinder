@@ -148,11 +148,26 @@ export default function MainPoem() {
   const [category, setCategory] = useState("All Categories");
   const [sort, setSort] = useState("Trending");
 
-  const filteredPoems = poemsData.filter((poem) =>
-    poem.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredPoems = poemsData.filter((poem) => {
+    const matchesSearch = poem.title.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = category === "All Categories" || poem.tags.includes(category.toLowerCase());
+    return matchesSearch && matchesCategory;
+  });
 
-  const visiblePoems = filteredPoems.slice(0, visibleCount);
+  // Sort the filtered poems
+  const sortedPoems = [...filteredPoems].sort((a, b) => {
+    switch (sort) {
+      case "Newest":
+        return b.id - a.id;
+      case "Popular":
+        return b.views - a.views;
+      case "Trending":
+      default:
+        return (b.rating * 100 + b.likes) - (a.rating * 100 + a.likes);
+    }
+  });
+
+  const visiblePoems = sortedPoems.slice(0, visibleCount);
 
   return (
     <main className=" bg-slate-50 px-4 py-10 sm:px-6 lg:px-12 max-w-7xl mx-auto">

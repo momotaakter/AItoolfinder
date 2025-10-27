@@ -224,7 +224,7 @@ const Header = () => {
 
               {/* Navigation items */}
               <div className="overflow-y-auto h-[calc(100%-80px)]">
-                <nav className="p-4 space-y-2">
+                <nav className="p-4 space-y-1">
                   {navigationItems.map((item) => (
                     item.dropdown ? (
                       <div key={item.name} className="space-y-1">
@@ -257,7 +257,7 @@ const Header = () => {
                   ))}
                   
                   {/* Mobile CTA Buttons */}
-                  <div className="pt-6 space-y-3 border-t border-gray-200 mt-4">
+                  <div className="pt-6 space-y-2 border-t border-gray-200 mt-3 pb-4 mb-5">
                     <Link
                       href="/submit-tool"
                       className="flex items-center justify-center space-x-1 bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 text-base font-medium text-center rounded-lg transition-colors duration-200"

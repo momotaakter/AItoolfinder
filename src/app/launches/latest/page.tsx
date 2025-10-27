@@ -1,47 +1,173 @@
-import React from 'react';
+"use client";
+import { motion } from "framer-motion";
+import { CircleArrowUp, ExternalLink, Star } from "lucide-react";
+import React, { useState } from "react";
+import TitleSection from "@/components/common/TitleSection";
 
-const page: React.FC = () => {
+
+
+
+interface ButtonProps {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.8 },
+  }),
+};
+
+const page:React.FC = () => {
+  const [active, setActive] = useState<string>("All Time");
+  const [visibleCount, setVisibleCount] = useState<number>(6);
+
+  const buttons: string[] = ["All Time", "This Month", "This Week"];
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 6);
+  };
+
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-      <div className="md:flex">
-        <div className="p-8">
-          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-            Skwad
+    <div className="p-4">
+      <TitleSection
+        title="🚀 Latest AI Tool Launches"
+        paragraph="Discover the most recent AI tools that have launched. Stay updated with the latest innovations in artificial intelligence."
+      ></TitleSection>
+
+
+
+
+
+
+
+      {/* Filter Buttons */}
+      <div className="flex flex-wrap gap-2 sm:gap-4 mt-4 justify-center">
+        {buttons.map((label) => (
+          <Button
+            key={label}
+            label={label}
+            active={active === label}
+            onClick={() => setActive(label)}
+          />
+        ))}
+      </div>
+
+      {/* Cards */}
+      <div className="mt-4 flex flex-wrap gap-4 justify-center">
+        {Array.from({ length: visibleCount }).map((_, idx) => (
+          <motion.div
+            key={idx}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={idx}
+          >
+            <AIToolCard />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Load More Button */}
+      <div className="flex w-full items-center justify-center mt-6">
+        <button
+          onClick={handleLoadMore}
+          className="border text-white rounded-xl px-4 py-2 font-semibold bg-[#009966] cursor-pointer hover:bg-gray-300/90 transition"
+        >
+          Load More
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const Button: React.FC<ButtonProps> = ({ label, active, onClick }) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`px-3 sm:px-4 py-2 rounded-xl border transition font-medium cursor-pointer ${
+        active
+          ? "bg-[#39c682] text-white border-[#39c682]"
+          : "bg-white border-[#39c682] text-black hover:bg-[#39c682]/10"
+      }`}
+    >
+      {label}
+    </button>
+  );
+};
+
+const AIToolCard: React.FC = () => {
+  return (
+    <div className="w-full sm:w-[280px] md:w-[300px] lg:w-[360px] border rounded-xl shadow-sm p-4 bg-white flex flex-col gap-3 cursor-pointer hover:shadow-md transition">
+      {/* Header Section */}
+      <div className="flex items-start justify-between mb-5">
+        <div className="flex gap-3 relative w-full">
+          <div className="w-12 h-12 flex items-center justify-center bg-gray-300 rounded-md font-semibold text-gray-600 shrink-0">
+            HT
           </div>
-          <div className="block mt-1 text-lg leading-tight font-medium text-black">
-            SK
-          </div>
-          <p className="mt-2 text-gray-600">
-            Skwad is a privacy-first money management tool designed to assist users in
-            understanding and tracking their spending. The unique proposition of Skwad is that it
-            helps users maintain financial clarity without the need to link or share their bank
-            login details with a third-party application. Instead, users receive a dedicated Skwad
-            email address where they can direct spending alerts from their banks or credit card
-            providers which are then quickly converted into categorized transactions. Skwad
-            facilitates the uploading of old transactions for a comprehensive financial overview.
-            Notably, Skwad alerts users about out-of-place transactions or changes in spending
-            patterns, helping in the early identification and mitigation of financial risks. Another
-            feature is the tracking of bills and subscriptions, with provided notifications for
-            upcoming payments and fee changes. The Skwad app allows the sharing of specific
-            transactions with a trusted group (Skwad) and offers functionalities such as spend
-            calendar, transaction enhancement with receipts, synchronization to Google Sheets, and
-            transaction splitting. In terms of security and privacy, only transaction information
-            is accessed by Skwad, with no requirement or exposure of sensitive bank details.
-          </p>
-          <div className="mt-4 flex space-x-4">
-            <button className="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">
-              Coming Soon
-            </button>
-            <button className="text-indigo-500 border border-indigo-500 px-4 py-2 rounded hover:bg-gray-100">
-              Get Notified
-            </button>
-          </div>
-          <div className="mt-4 text-gray-500 text-sm">
-            Design & Creative <span className="text-gray-400">0 subscribers</span>
+
+          <div className="flex flex-col w-full">
+            <span className="text-[10px] absolute bg-green-500 text-white px-1.5 py-[1.5px] rounded-2xl font-medium left-5 sm:left-5">
+              New
+            </span>
+
+            <div className="flex items-center gap-2">
+              <span className="text-md font-medium text-gray-900 truncate">
+                https://www.aippt.com/
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2 mt-1 flex-wrap">
+              <span className="text-xs bg-gray-100 text-gray-700 px-3 py-[2px] rounded-2xl">
+                Other
+              </span>
+              <span className="text-xs bg-green-100 text-green-700 px-3 py-[2px] rounded-2xl">
+                Paid
+              </span>
+            </div>
+
+            {/* text document */}
+            <div className="flex items-center gap-2 my-2">
+              <span className="text-sm font-medium text-gray-500">
+                https://www.aippt.com/
+              </span>
+            </div>
+
+            {/* Bottom Actions */}
+            <div className="flex flex-wrap justify-between items-center mt-2 gap-2">
+              <div className="flex items-center justify-center gap-2 text-gray-600 text-sm flex-1 min-w-20 rounded-md py-1.5 border hover:shadow-sm transition hover:bg-gray-300/20">
+                <CircleArrowUp size={16} />
+                <span>3</span>
+              </div>
+
+              <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-[120px] flex-wrap">
+                <a
+                  href="https://www.aippt.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1 text-sm text-gray-700 rounded-md py-1.5 border hover:text-blue-600 font-medium hover:shadow-sm transition flex-1 min-w-[60px] px-2"
+                >
+                  <ExternalLink size={15} />
+                  View
+                </a>
+                <button
+                  className="text-gray-400 hover:text-yellow-400 transition flex-1 min-w-10"
+                  title="Add to favorites"
+                >
+                  <Star size={18} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+
   );
 };
 

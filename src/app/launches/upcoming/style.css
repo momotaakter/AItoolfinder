@@ -1,0 +1,88 @@
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+    max-width: 1000px;
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    padding-bottom:30px;
+
+  }
+  .coming-soon-btn {
+    position: absolute;
+    top: -10px;
+    right: 40px;
+    transform: translateY(-50%);
+    background:#009966;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .coming-soon-btn:hover { background: #009966; }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .logo-section { display: flex; flex-direction: column; gap: 12px; }
+  .title { font-size: 28px; font-weight: 700; color: #1a1a1a; }
+  .badge {
+    width: 70px; height: 70px;
+    background: #d4d4d4; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 600; color: #333;
+  }
+  .buttons-section { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 24px; border-radius: 50px; border: 2px solid #009966;
+    background: transparent; color: #009966; font-size: 16px; font-weight: 600;
+    display: flex; align-items: center; gap: 8px; cursor: pointer; transition: all 0.3s ease;
+  }
+  .btn:hover { background: #009966; color: white; }
+  .description { font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 24px; text-align: justify; }
+  .footer-info { font-size: 14px; color: #888; display: flex; gap: 20px; flex-wrap: wrap; }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .card { padding: 24px; }
+    .buttons-section { width: 50%; flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .title { font-size: 24px; }
+    .description { font-size: 14px; }
+    /* Hide desktop button on mobile */
+    .coming-soon-btn.desktop { display: none; }
+    /* Show mobile button below description */
+    .coming-soon-btn.mobile {
+      display: flex;
+      position: static;
+      transform: none;
+      width: 100%;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 16px; }
+    .title { font-size: 20px; }
+    .badge { width: 60px; height: 60px; font-size: 20px; }
+    .description { font-size: 13px; line-height: 1.5; }
+    .btn { padding: 10px 16px; font-size: 14px; }
+    .footer-info { font-size: 12px; gap: 12px; }
+  }

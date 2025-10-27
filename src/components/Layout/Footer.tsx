@@ -209,7 +209,7 @@ export default function Footer() {
         </div>
 
         {/* Right side menu */}
-        <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 text-center">
+        <div className="flex flex-col md:flex-row items-center md:items-start space-y-2 md:space-y-0 md:space-x-6 text-center">
           <a href="#" className="hover:text-gray-300 transition">Terms</a>
           <a href="#" className="hover:text-gray-300 transition">Privacy</a>
           <a href="#" className="hover:text-gray-300 transition">About</a>
