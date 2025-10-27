@@ -42,7 +42,6 @@ export default function HeroSection() {
       delay: icon.delay,
       duration: 2, // আগের থেকে দ্রুত
       repeat: Infinity,
-      ease: "easeInOut",
     }}
   >
     <Image
@@ -145,7 +144,6 @@ export default function HeroSection() {
             transition={{
               duration: 3,
               repeat: Infinity,
-              ease: "easeInOut"
             }}
             style={{
               backgroundSize: "200% 200%",
@@ -204,7 +202,6 @@ export default function HeroSection() {
             transition={{
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
             }}
             style={{
               backgroundSize: "200% 200%",
@@ -221,7 +218,7 @@ export default function HeroSection() {
         className="mt-6 text-black text-lg sm:text-xl max-w-2xl leading-relaxed"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
+        transition={{ delay: 1, duration: 0.8 }}
       >
         Discover the best AI tools for your needs. </motion.p>
 
@@ -230,7 +227,7 @@ export default function HeroSection() {
         className="mt-10 bg-white rounded-2xl shadow-2xl flex items-center w-full max-w-2xl overflow-hidden border border-gray-200/50"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+        transition={{ delay: 1.2, duration: 0.8 }}
       >
         <div className="flex-1 px-6 py-4">
           <input
@@ -252,7 +249,6 @@ export default function HeroSection() {
           transition={{
             duration: 3,
             repeat: Infinity,
-            ease: "easeInOut"
           }}
           style={{
             backgroundSize: "200% 200%",
@@ -277,7 +273,7 @@ export default function HeroSection() {
         className="mt-8 flex flex-col sm:flex-row gap-4 items-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.4, duration: 0.6, ease: "easeOut" }}
+        transition={{ delay: 1.4, duration: 0.6 }}
       >
         <motion.button
           className="px-6 py-3 bg-[#009966] text-white rounded-full border border-gray-300 hover:text-black hover:bg-gray-50 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
